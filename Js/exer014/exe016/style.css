@@ -23,8 +23,3 @@ footer{
 div{
     align-items: center;
 }
-div > img{
-    border-radius: 25px;
-    width: 350px;
-    height: 250px;
-}

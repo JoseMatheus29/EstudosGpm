@@ -10,9 +10,8 @@ header{
 section{
     background: white;
     border-radius: 10px;
-    padding: 50px;
+    padding: 15px;
     width: 500px;
-    height: 250px;
     margin: auto;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.336);
 }
@@ -21,7 +20,11 @@ footer{
     text-align: center;
     font-style: italic;
 }
-div#dados{
-    align-items: left;
-    margin:20px
+div{
+    align-items: center;
+}
+div > img{
+    border-radius: 25px;
+    width: 350px;
+    height: 250px;
 }

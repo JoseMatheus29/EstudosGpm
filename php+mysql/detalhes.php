@@ -24,13 +24,14 @@
                     $t = thumb($reg->capa);
                     echo "<tr><td rowspan='3'><img src='$t' alt='Capa do game'>";
                     echo "<td><h2>$reg->nome</h2>";
+                    echo "Nota: $reg->nota";
                     echo "<tr><td>$reg->descricao";
                     echo "<tr><td>Adm";
                     echo "</table>";
                 }
             }
         ?>
-
+    <a href="index.php"><img src="icones/icoback.png" alt="VOltar"></a>
     </div>
 </body>
 </html>

@@ -12,10 +12,11 @@
 
             <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" id="home-menu" href="#">Carrinho</a>
-                    <a class="nav-item nav-link" id="about-menu" href="#">Produto</a>
-                    <a class="nav-item nav-link" id="services-menu" href="#">Home</a>
-                    <a class="nav-item nav-link" id="team-menu" href="#">Entrar/Cadastrar</a>
+                    <a class="nav-item nav-link" id="Carrinho" href="#">Carrinho</a>
+                    <a class="nav-item nav-link" id="Produtos" href="#">Produto</a>
+                    <a class="nav-item nav-link" id="Home" href="<?= base_url() ?>HomeController">Home</a>
+                    <a class="nav-item nav-link" id="Entrar Cadastra" href="#">Entrar/Cadastrar</a>
+                    <a class="nav-item nav-link" id="CadastraProdutos" href="<?= base_url() ?>ProdutoController">Cadastrar Produtos</a>
 
 
                 </div>
@@ -24,30 +25,3 @@
     </div>
 </header>
 
-<style>
-    .navbar{
-        background-color: #1F6D31;
-    }
-    #nav-container{
-        padding-bottom: 0;
-        padding-top: 0;
-    }
-    #logo{
-        width: 75px;
-    }
-    .navbar-brand{
-        padding: 0;
-        color: #fff;
-    }
-
-    .navbar-brand:hover{
-        color: #fff;
-    }
-
-    #navbar-links a{
-        color: #fff;
-    }
-    .navbar-expand-lg .navbar-nav .nav-link{
-        padding: 1rem .8rem;
-    }
-</style>

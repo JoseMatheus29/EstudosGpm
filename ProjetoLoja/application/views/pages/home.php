@@ -7,10 +7,11 @@
                 <?php foreach($produtos as $produto): ?>
                 <div class="col-md-3 mb-4">
                     <div class="card">
-                        <img class="card-img-top" src="<? $produto['foto']?>" alt="Imagem roupa">
+                        <img class="card-img-top" src="<?= base_url()?>assets/img/<?php echo $produto['foto']?>" alt="Imagem roupa">
                         <div class="card-body">
-                            <h5 class="card-title"><?$produto['nome']?></h5>
-                            <p class="card-text"><?$produto['descricao']?></p>
+                         <h2> <? echo base_url() . "assets/img/" . $produto['foto']?> </h2>
+                            <h5 class="card-title"><?php echo $produto['nome']?></h5>
+                            <p class="card-text"><?php echo $produto['descricao']?></p>
                             <a href="#" class="btn btn" id='botaoHome' >P</a>
                             <a href="#" class="btn btn" id='botaoHome'>M</a>
                             <a href="#" class="btn btn" id='botaoHome'>G</a>

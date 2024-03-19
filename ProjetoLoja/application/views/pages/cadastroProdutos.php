@@ -12,11 +12,11 @@
 							<input type="text" class="form-control" name="nome" id="nome" placeholder="Name" required >
 						</div>
 					</div>
-					<div class="col-md-6">
+                    <div class="col-md-6">
 						<div class="form-group">
 							<label for="tamanho">Tamanho</label>
 							<input type="text" class="form-control" name="tamanho" id="tamanho" placeholder="Tamanho" required >
-						</div> 
+						</div>
 					</div>
                     <div class="col-md-6">
 						<div class="form-group">

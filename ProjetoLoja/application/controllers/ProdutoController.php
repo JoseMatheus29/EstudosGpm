@@ -10,6 +10,7 @@ class ProdutoController extends CI_Controller{
         $this->load->view('templates/navbar', $data);
 		$this->load->view('pages/cadastroProdutos', $data);
         $this->load->view('templates/footer.php', $data);
+
 	}
 
 
@@ -40,6 +41,9 @@ class ProdutoController extends CI_Controller{
 
     public function atualizar(){
         $this->load->model("produtos_model");
+        $produtoCliente = $_POST;
+        $this->produtos_model->atualizar($produtoCliente);
+        redirect(base_url());
 
     }
 } 

@@ -12,10 +12,20 @@
                          <h2> <? echo base_url() . "assets/img/" . $produto['foto']?> </h2>
                             <h5 class="card-title"><?php echo $produto['nome']?></h5>
                             <p class="card-text"><?php echo $produto['descricao']?></p>
-                            <a href="#" class="btn btn" id='botaoHome' >P</a>
-                            <a href="#" class="btn btn" id='botaoHome'>M</a>
-                            <a href="#" class="btn btn" id='botaoHome'>G</a>
-                            <a href="#" class="btn btn" id='botaoHome'>GG</a>
+                            <button class="btn btn" id="botaoCard" ><i class="bi bi-suit-heart"></i></button>
+                            <button class="btn btn" id="botaoCard" ><i class="bi bi-trash3"></i></button>
+                            <button class="btn btn " id="botaoCard" ><i class="bi bi-pencil"></i></button>
+                            <br><br>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="row-md-3 ">
+                                        <button class="btn btn btn-sm"  id="botao">Adicionar ao carrinho</button>
+                                        
+
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>    
 

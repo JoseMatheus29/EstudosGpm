@@ -12,7 +12,7 @@ class Signup extends CI_Controller {
 	}
 
 	public function store(){
-		$this->load->model
+		$this->load->model;
 	}
 }
 

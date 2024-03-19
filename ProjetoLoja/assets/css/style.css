@@ -55,6 +55,13 @@ button#botao{
     color: #F1F1F1;
 }
 
+button#botaoCard{
+    background-color: #1F6D31;
+    color: #F1F1F1;
+    border-color: #1F6D31;
+    border-radius: 25px;
+}
+
 a#botaoHome{
     background-color: #1F6D31;
     color: #F1F1F1;

@@ -12,9 +12,9 @@
                          <h2> <? echo base_url() . "assets/img/" . $produto['foto']?> </h2>
                             <h5 class="card-title"><?php echo $produto['nome']?></h5>
                             <p class="card-text"><?php echo $produto['descricao']?></p>
-                            <button class="btn btn" id="botaoCard" ><i class="bi bi-suit-heart"></i></button>
-                            <button class="btn btn" id="botaoCard" ><i class="bi bi-trash3"></i></button>
-                            <button class="btn btn " id="botaoCard" ><i class="bi bi-pencil"></i></button>
+                            <a class="btn btn" id="botaoCard" ><i class="bi bi-suit-heart"></i></a>
+                            <a class="btn btn" id="botaoCard" href="javascript:goDelete(<?= $produto['id']?>)"><i class="bi bi-trash3"></i></a>
+                            <a class="btn btn " id="botaoCard" href='"<?= base_url()?>ProdutoController/atualizar"'><i class="bi bi-pencil"></i></a>
                             <br><br>
                             <div class="container">
                                 <div class="row">
@@ -36,3 +36,14 @@
         
 </main>            
 
+<script>
+    function goDelete(id){
+        var myUrl = 'ProdutoController/deletar/'+id
+        if(confirm('Deseja realmente apagar esse registro?')){
+            window.location.href =myUrl
+        }else{
+            alert("Registro não alterado")
+            return false
+        }
+    }
+</script>

@@ -12,8 +12,8 @@
 
             <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" id="Carrinho" href="#">Carrinho</a>
-                    <a class="nav-item nav-link" id="Produtos" href="#">Produto</a>
+                    <a class="nav-item nav-link" id="Carrinho" href="<?= base_url() ?>carrinhoController">Carrinho</a>
+                    <a class="nav-item nav-link" id="Produtos" href="<?= base_url() ?>HomeController">Produto</a>
                     <a class="nav-item nav-link" id="Home" href="<?= base_url() ?>HomeController">Home</a>
                     <a class="nav-item nav-link" id="Entrar" href="<?= base_url() ?>usuarioController/login">Entrar</a>
                     <a class="nav-item nav-link" id="Cadastrar" href="<?= base_url() ?>usuarioController/cadastrarUsuario">Cadastrar</a>

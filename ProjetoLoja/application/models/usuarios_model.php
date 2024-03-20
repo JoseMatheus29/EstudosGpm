@@ -15,7 +15,7 @@ class Usuarios_model extends CI_Model {
         
     public function deletar($id){
         $this->db->where("id",$id);
-        return $this->db->delete("produtos");  
+        return $this->db->delete("usuarios");  
     }
 
     public function atualizar($produto){
@@ -23,5 +23,6 @@ class Usuarios_model extends CI_Model {
         return $this->db->update('produtos', $produto);
 
     }
+
     }
 ?>

@@ -64,8 +64,14 @@ class usuarioController extends CI_Controller{
             $this->session->set_userdata("usuario_logado", $user);
             redirect(base_url());
         }else{
-            redirect("login");
+            redirect(base_url().'/usuarioController/login');
         }
+    }
+
+    public function sair(){
+        $this->session->unset_userdata("usuario_logado");
+        redirect(base_url().'/usuarioController/login');
+
     }
 
 }

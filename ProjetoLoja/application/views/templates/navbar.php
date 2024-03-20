@@ -19,6 +19,8 @@
                     <a class="nav-item nav-link" id="Cadastrar" href="<?= base_url() ?>usuarioController/cadastrarUsuario">Cadastrar Usuarios</a>
                     <a class="nav-item nav-link" id="CadastraProdutos" href="<?= base_url() ?>ProdutoController">Cadastrar Produtos</a>
                     <a class="nav-item nav-link" id="Entrar" href="<?= base_url() ?>usuarioController/login">Entrar</a>
+                    <a class="nav-item nav-link" id="Entrar" href="<?= base_url() ?>usuarioController/sair">Sair</a>
+
 
                 </div>
             </div>

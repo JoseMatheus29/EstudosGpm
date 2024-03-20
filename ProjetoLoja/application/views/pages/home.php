@@ -16,16 +16,14 @@
                             <p class="card-text"><?php echo $produto['descricao']?></p>
                             <a class="btn btn" id="botaoCard" ><i class="bi bi-suit-heart"></i></a>
                             <a class="btn btn" id="botaoCard" href="javascript:goDelete(<?= $produto['id']?>)"><i class="bi bi-trash3"></i></a>
-                            <a  class="btn btn " id="botaoCard" data-toggle="modal" data-target="#modalAtt<?= $produto['id']?>" href="<?= base_url()?>ProdutoController/atualizar/?id=<?= $produto['id']?>" ><i class="bi bi-pencil">
+                            <a  class="btn btn " id="botaoCard" data-toggle="modal" data-target="#modalAtt<?= $produto['id']?>" ><i class="bi bi-pencil">
                                 
                             </i></a >
                             <br><br>
                             <div class="container">
                                 <div class="row">
                                     <div class="row-md-3 ">
-                                        <button class="btn btn btn-sm"  id="botao">Adicionar ao carrinho</button>
-                                        
-
+                                        <a   href="<?= base_url()?>carrinhoController/adicionarCarrinho/<?= $produto['id']?>" class="btn btn btn-sm"  id="botaoCard" id="botao">Adicionar ao carrinho</a>
                                     </div>
                                 </div>
                             </div>

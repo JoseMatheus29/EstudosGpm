@@ -43,5 +43,14 @@ class usuarioController extends CI_Controller{
         $this->usuarios_model->deletar($id);
         redirect(base_url());
     }
+
+    public function editarUsuario($id){
+        $this->load->model("usuario_model");
+        $this->load->view('templates/header');
+        $this->load->view('templates/navbar');
+		$this->load->view('pages/cadastroUsuario');
+        $this->load->view('templates/footer.php');
+    }
+
 }
 

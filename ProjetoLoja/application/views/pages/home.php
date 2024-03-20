@@ -9,12 +9,16 @@
                     <div class="card">
                         <img class="card-img-top" src="<?= base_url()?>assets/img/<?php echo $produto['foto']?>" alt="Imagem roupa">
                         <div class="card-body">
+                        <h5 class="card-title"><?php echo $produto['id']?></h5>
+
                             <h5 class="card-title"><?php echo $produto['nome']?></h5>
                             <p class="card-text">R$ <?php echo $produto['valor']?></p>
                             <p class="card-text"><?php echo $produto['descricao']?></p>
                             <a class="btn btn" id="botaoCard" ><i class="bi bi-suit-heart"></i></a>
                             <a class="btn btn" id="botaoCard" href="javascript:goDelete(<?= $produto['id']?>)"><i class="bi bi-trash3"></i></a>
-                            <a  class="btn btn " id="botaoCard" data-toggle="modal" data-target="#modalAtt" href="<?= base_url()?>ProdutoController/atualizar/?id=<?= $produto['id']?>" ><i class="bi bi-pencil"></i></a >
+                            <a  class="btn btn " id="botaoCard" data-toggle="modal" data-target="#modalAtt<?= $produto['id']?>" href="<?= base_url()?>ProdutoController/atualizar/?id=<?= $produto['id']?>" ><i class="bi bi-pencil">
+                                
+                            </i></a >
                             <br><br>
                             <div class="container">
                                 <div class="row">
@@ -30,7 +34,7 @@
                     </div>    
 
                 </div>
-                
+                    
                 <?php endforeach ?>
             </div>
         </div>
@@ -49,3 +53,12 @@
     }
 </script>
 
+
+<!-- 
+<script>
+    $('#modalAtt').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) 
+    var modal = $(this)
+    modal.find('.modal-body input#nome').val('teste')
+    })
+</script> -->

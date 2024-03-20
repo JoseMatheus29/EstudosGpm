@@ -1,5 +1,5 @@
-
-<div class="modal fade" id="modalAtt" tabindex="-1" >
+<?php foreach($produtos as $produto):?>
+<div class="modal fade" id="modalAtt<?= $produto['id']?>" tabindex="-1" >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -47,3 +47,4 @@
     </div>
   </div>
 </div>
+<?php endforeach?>

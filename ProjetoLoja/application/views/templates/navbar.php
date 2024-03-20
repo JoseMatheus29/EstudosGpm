@@ -15,7 +15,8 @@
                     <a class="nav-item nav-link" id="Carrinho" href="#">Carrinho</a>
                     <a class="nav-item nav-link" id="Produtos" href="#">Produto</a>
                     <a class="nav-item nav-link" id="Home" href="<?= base_url() ?>HomeController">Home</a>
-                    <a class="nav-item nav-link" id="Entrar Cadastra" href="#">Entrar/Cadastrar</a>
+                    <a class="nav-item nav-link" id="Entrar" href="<?= base_url() ?>usuarioController/login">Entrar</a>
+                    <a class="nav-item nav-link" id="Cadastrar" href="<?= base_url() ?>usuarioController/cadastrarUsuario">Cadastrar</a>
                     <a class="nav-item nav-link" id="CadastraProdutos" href="<?= base_url() ?>ProdutoController">Cadastrar Produtos</a>
 
 
@@ -24,4 +25,5 @@
         </nav>
     </div>
 </header>
+
 

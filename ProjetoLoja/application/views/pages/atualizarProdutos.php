@@ -1,4 +1,3 @@
-<?php foreach($produtos as $produto): ?>
 
 <div class="modal fade" id="modalAtt" tabindex="-1" >
   <div class="modal-dialog" role="document">
@@ -48,4 +47,3 @@
     </div>
   </div>
 </div>
-<?php endforeach ?>

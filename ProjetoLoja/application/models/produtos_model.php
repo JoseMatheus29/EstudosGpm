@@ -19,8 +19,10 @@ class Produtos_model extends CI_Model {
     }
 
     public function atualizar($produto){
-        $this->db->where('nome', $produto['nome']);
-        return $this->db->update('produtos', $produto);
+
+        $this->db->set($produto);
+        $this->db->where('id', $produto['id']);
+        $this->db->update('produtos');
 
     }
     }

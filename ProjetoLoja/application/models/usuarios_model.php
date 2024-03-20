@@ -14,13 +14,15 @@ class Usuarios_model extends CI_Model {
     }
         
     public function deletar($id){
-        $this->db->where("id",$id);
+        $this->db->where("user_id",$id);
         return $this->db->delete("usuarios");  
     }
 
-    public function atualizar($produto){
-        $this->db->where('nome', $produto['nome']);
-        return $this->db->update('produtos', $produto);
+    public function atualizar($usuario){
+
+        $this->db->set($usuario);
+        $this->db->where('user_id', $usuario['user_id']);
+        $this->db->update('usuarios');
 
     }
 

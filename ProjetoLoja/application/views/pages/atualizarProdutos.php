@@ -11,6 +11,10 @@
       <div class="modal-body">
         <form action="<?= base_url()?>ProdutoController/atualizar" method="post">
             <div class="form-group">
+                <label for="nome" class="col-form-label" >Id:</label>
+                <input type="text" class="form-control" name="id" value="<?php echo $produto['id']?>" readonly>
+            </div>
+            <div class="form-group">
                 <label for="nome" class="col-form-label" >Nome:</label>
                 <input type="text" class="form-control" name="nome" value="<?php echo $produto['nome']?>">
             </div>

@@ -12,6 +12,8 @@ class usuarioController extends CI_Controller{
 		$this->load->view('templates/navbar', $data);
 		$this->load->view('pages/usuarios', $data);
 		$this->load->view('templates/footer');
+		$this->load->view('pages/atualizarUsuarios');
+
     }
     public function login()
 	{  
@@ -41,15 +43,15 @@ class usuarioController extends CI_Controller{
     public function deletarUsuario($id){
         $this->load->model("usuarios_model");
         $this->usuarios_model->deletar($id);
-        redirect(base_url());
+        redirect(base_url().'/usuarioController');
     }
 
-    public function editarUsuario($id){
-        $this->load->model("usuario_model");
-        $this->load->view('templates/header');
-        $this->load->view('templates/navbar');
-		$this->load->view('pages/cadastroUsuario');
-        $this->load->view('templates/footer.php');
+    public function atualizar(){
+        $this->load->model("usuarios_model");
+        $usuarioAtt = $_POST;
+        $this->usuarios_model->atualizar($usuarioAtt);
+        redirect(base_url().'/usuarioController');
+
     }
 
 }

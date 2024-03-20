@@ -5,14 +5,14 @@
             <br>
             <h3>Login</h3>
 			<div class="col-md-12">
-            <form >
+            <form action="<?= base_url()?>/usuarioController/logar" method="post">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+                    <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Email">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Senha</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                    <input type="password" class="form-control" name="senha" placeholder="Senha">
                 </div>
                 <button type="submit" class="btn btn" id="botao">Entrar</button>
             </form>

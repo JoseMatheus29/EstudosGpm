@@ -35,6 +35,7 @@ class usuarioController extends CI_Controller{
 
     public function novoUsuario(){
         $usuario = $_POST;
+        $usuario['senha'] = md5($usuario['senha']);
         $this->load->model("usuarios_model");
         $this->usuarios_model->novo($usuario);
         redirect(base_url());
@@ -52,6 +53,19 @@ class usuarioController extends CI_Controller{
         $this->usuarios_model->atualizar($usuarioAtt);
         redirect(base_url().'/usuarioController');
 
+    }
+
+    public function logar(){
+        $email = $_POST['email'];
+        $senha = md5($_POST['senha']);
+        $this->load->model("usuarios_model");
+        $user = $this->usuarios_model->login($email, $senha);
+        if($user){
+            $this->session->set_userdata("usuario_logado", $user);
+            redirect(base_url());
+        }else{
+            redirect("login");
+        }
     }
 
 }

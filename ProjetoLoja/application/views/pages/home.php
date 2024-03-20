@@ -16,7 +16,7 @@
                             <p class="card-text"><?php echo $produto['descricao']?></p>
                             <a class="btn btn" id="botaoCard" ><i class="bi bi-suit-heart"></i></a>
                             <a class="btn btn" id="botaoCard" href="javascript:goDelete(<?= $produto['id']?>)"><i class="bi bi-trash3"></i></a>
-                            <a  class="btn btn " id="botaoCard" data-toggle="modal" data-target="#modalAtt<?= $produto['id']?>" ><i class="bi bi-pencil">
+                            <a  class="btn btn " hiden id="botaoCard" data-toggle="modal" data-target="#modalAtt<?= $produto['id']?>" ><i class="bi bi-pencil">
                                 
                             </i></a >
                             <br><br>

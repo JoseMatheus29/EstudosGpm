@@ -25,7 +25,12 @@ class Usuarios_model extends CI_Model {
         $this->db->update('usuarios');
 
     }
-
-
+    public function login($email, $senha){
+        $this->db->where('email', $email);
+        $this->db->where('senha',$senha);
+        $user = $this->db->get('usuarios')->row_array();
+        $this->db->set('logado', 1);
+        return $user;
     }
+}
 ?>

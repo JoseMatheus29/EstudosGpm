@@ -26,10 +26,15 @@ class Produtos_model extends CI_Model {
 
     }
     public function adicionarCarrinho( $id){
-        $produto = $this->db->get_where('produtos', array('id'=> $id))->result_array();
-        $prdArray['nome'] = $produto[0]['nome'];
-        $prdArray['valor'] = $produto[0]['valor'];
-        $prdJson = json_encode($prdArray);
+        $produtos = $this->db->get_where('produtos', array('id'=> $id))->result_array();
+        $carrinho = array();
+        foreach ($produtos as $produto) {
+            $carrinho[] = array(
+                'nome' => $produto['nome'],
+                'valor' => $produto['valor']
+            );
+        }
+        $prdJson = json_encode($carrinho);
         $this->db->set('carrinho', $prdJson);
         $this->db->where('user_id', 10);
         $this->db->update('usuarios');

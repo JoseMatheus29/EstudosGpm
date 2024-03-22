@@ -1,3 +1,29 @@
+<?php
+$carrinho['nome'] = [];
+$carrinho['valor'] = [];
+$count = 0;
+foreach($usuarios as $usuario){
+    $jsonObj = json_decode($usuario['carrinho'],true);
+    if ($jsonObj !== null){
+        foreach($jsonObj as $chave => $valor){
+            
+            if($chave == "nome"){
+                $carrinho['nome'][$count] = $valor;
+                $count+=1;     
+            } if($chave == "valor"){
+                $carrinho['valor'][$count] = $valor;
+                $count+=1;     
+            }
+        }
+    }
+} 
+
+?>
+
+
+
+
+
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 		<h1 class="h2">Carrinho</h1>
@@ -16,11 +42,10 @@
 				</tr>
 			</thead>
 			<tbody>
-               
-                
+            
                 <tr>
-                    <td><?php echo $carrinho['nome'];?></td>
-                    <td><?php echo $carrinho['valor'];?></td>
+                    <td><?php echo $carrinho['nome'][0];?></td>
+                    <td><?php echo $carrinho['valor'][1];?></td>
 
                     
                     <td>

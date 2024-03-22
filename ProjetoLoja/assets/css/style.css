@@ -67,3 +67,9 @@ a#botaoHome{
     color: #F1F1F1;
 }
 
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+}

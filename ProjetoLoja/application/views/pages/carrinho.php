@@ -3,11 +3,12 @@ $carrinho['nome'] = [];
 $carrinho['valor'] = [];
 $count = 0;
 foreach($usuarios as $usuario){
-    $jsonObj = json_decode($usuario['carrinho'],true);
+    $jsonObj = $usuario->carrinho;
     if ($jsonObj !== null){
         foreach($jsonObj as $chave => $valor){
-            
+            var_dump($valor);
             if($chave == "nome"){
+                echo $carrinho['nome'][$count];
                 $carrinho['nome'][$count] = $valor;
                 $count+=1;     
             } if($chave == "valor"){
@@ -17,6 +18,7 @@ foreach($usuarios as $usuario){
         }
     }
 } 
+exit();
 
 ?>
 

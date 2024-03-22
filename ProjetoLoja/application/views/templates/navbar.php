@@ -8,7 +8,7 @@
 <header>
     <div class="container" id="nav-container ">
         <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-            <a href="#" class="navbar-brand">
+            <a href="<?= base_url() ?>HomeController" class="navbar-brand">
                 Loja Online
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" 
@@ -36,10 +36,12 @@
                             <a class="nav-item nav-link" id="Carrinho" href="<?= base_url() ?>carrinhoController">Carrinho</a>
                             <a class="nav-item nav-link" id="Produtos" href="<?= base_url() ?>HomeController">Produto</a>
                             <a class="nav-item nav-link" id="Home" href="<?= base_url() ?>HomeController">Home</a>
-                            <a class="nav-item nav-link" id="Entrar" href="<?= base_url() ?>usuarioController/login">Entrar</a>
-                            <a class="nav-item nav-link" id="Cadastrar" href="<?= base_url() ?>usuarioController/cadastrarUsuario">Cadastrar-se</a>
                             <a class="nav-item nav-link" id="Entrar" href="<?= base_url() ?>usuarioController/sair">Sair</a>
                         <?php endif?>
+                    <<?php else:?>
+                            <a class="nav-item nav-link" id="Home" href="<?= base_url() ?>HomeController">Home</a>
+                            <a class="nav-item nav-link" id="Entrar" href="<?= base_url() ?>usuarioController/login">Entrar</a>
+                            <a class="nav-item nav-link" id="Cadastrar" href="<?= base_url() ?>usuarioController/cadastrarUsuario">Cadastrar-se</a>
                     <?php endif?>
 
 

@@ -8,15 +8,19 @@ class Carrinho_model extends CI_Model {
     }
 
     public function finalizar($idPrododuto, $idPedido){
-        $produtos = $this->db->get_where('produtos', array('id'=> $id))->result_array();
+        $produtos = $this->db->get_where('produtos', array('id'=> $idPrododuto))->result_array();
 
         foreach ($produtos as $produto) {
             $idPrododuto = $produto['id'];
             $novaQuantidade = $produto['quantidade']-1;
         }
+        echo $novaQuantidade;
+        exit();
         $this->db->set('quantidade', $novaQuantidade);
         $this->db->where('id', $idPrododuto);
-        $this->db->update('produtos');    
+        $this->db->update('produtos');  
+        
+        
         $this->db->set('status', 1);
         $this->db->where('id', $idPedido);
         $this->db->update('carrinho');    

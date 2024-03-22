@@ -20,12 +20,12 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="<?= base_url()?>ProdutoController/atualizar" method="post">
-        <?php if($usuario_logado['tipo'] == 'adm'):?>
-            <div class="form-group">
+        <form action="<?= base_url()?>ProdutoController/atualizar/<?= $usuario_logado['tipo']?>" method="post">
+        <div class="form-group">
                 <label for="nome" class="col-form-label" >Id:</label>
                 <input type="text" class="form-control" name="id" value="<?php echo $produto['id']?>" readonly>
             </div>
+        <?php if($usuario_logado['tipo'] == 'adm'):?>
             <div class="form-group">
                 <label for="nome" class="col-form-label" >Nome:</label>
                 <input type="text" class="form-control" name="nome" value="<?php echo $produto['nome']?>">

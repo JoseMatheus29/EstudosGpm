@@ -39,10 +39,14 @@ class ProdutoController extends CI_Controller{
 
     }
 
-    public function atualizar(){
+    public function atualizar($tipo){
         $this->load->model("produtos_model");
         $produtoCliente = $_POST;
-        $this->produtos_model->atualizar($produtoCliente);
+        if($tipo == 'adm'){
+            $this->produtos_model->atualizar($produtoCliente);
+        }else{
+            $this->produtos_model->atualizarEstoque($produtoCliente);
+        }
         redirect(base_url());
 
     }

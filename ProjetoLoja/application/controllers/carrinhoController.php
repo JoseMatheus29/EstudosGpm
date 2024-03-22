@@ -32,7 +32,7 @@ class carrinhoController extends CI_Controller{
     public function finalizar($id, $idPedido){
         $this->load->model("carrinho_model");
         $this->carrinho_model->finalizar($id, $idPedido);
-        redirect(base_url().'/carrinhoController');
+        redirect(base_url().'/carrinhoController');  
     }
 } 
 

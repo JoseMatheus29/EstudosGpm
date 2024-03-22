@@ -62,6 +62,8 @@ class usuarioController extends CI_Controller{
             $this->session->set_userdata("usuario_logado", $user);
             redirect(base_url());
         }else{
+            $ci = get_instance();
+            $ci->session->set_flashdata("danger", "Usuario ou senha invalida");
             redirect(base_url().'/usuarioController/login');
         }
     }

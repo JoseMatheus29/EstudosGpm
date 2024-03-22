@@ -16,6 +16,9 @@
                 </div>
                 <button type="submit" class="btn btn" id="botao">Entrar</button>
             </form>
+            <?php if ($this->session->flashdata('danger')) { ?>
+                <div class="alert alert-danger"> <?= $this->session->flashdata('danger') ?> </div>
+            <?php } ?>
 		</div>
     </main>
   </div>

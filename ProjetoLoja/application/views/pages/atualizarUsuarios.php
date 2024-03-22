@@ -29,7 +29,12 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="qntd">Tipo</label>
-                    <input type="text" class="form-control" name="tipo" id="quantidade" value="<?php echo $usuario['tipo']?>">
+                    <select name="tipo" class="form-select form-select-sm" aria-label="Selecione o tipo de usuario">
+                      <option selected>---</option>
+                      <option value="adm">adm</option>
+                      <option value="estoquista">estoquista</option>
+                      <option value="cliente">cliente</option>
+                    </select>                
                 </div>
             </div>
           

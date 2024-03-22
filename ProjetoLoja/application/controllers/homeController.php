@@ -5,7 +5,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class HomeController extends CI_Controller{
     public function index()
 	{       
-        permicao();
         $this->load->model("produtos_model");
         $data['produtos'] = $this->produtos_model->index();
         $data['title'] = "Home";

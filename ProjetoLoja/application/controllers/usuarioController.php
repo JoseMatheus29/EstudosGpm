@@ -21,7 +21,6 @@ class usuarioController extends CI_Controller{
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar', $data);
 		$this->load->view('pages/login', $data);
-        $this->load->view('templates/footer.php', $data);
 
 	}
 
@@ -30,7 +29,6 @@ class usuarioController extends CI_Controller{
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar', $data);
 		$this->load->view('pages/cadastroUsuario', $data);
-        $this->load->view('templates/footer.php', $data);
     }
 
     public function novoUsuario(){

@@ -32,5 +32,7 @@ class Usuarios_model extends CI_Model {
         $this->db->set('logado', 1);
         return $user;
     }
+
+
 }
 ?>

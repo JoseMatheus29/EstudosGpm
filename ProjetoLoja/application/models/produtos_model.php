@@ -25,27 +25,13 @@ class Produtos_model extends CI_Model {
         $this->db->update('produtos');
 
     }
-    public function adicionarCarrinho( $id){
-        $produtos = $this->db->get_where('produtos', array('id'=> $id))->result_array();
-        $carrinho = array();
-        foreach ($produtos as $produto) {
-            $carrinho[] = array(
-                'nome' => $produto['nome'],
-                'valor' => $produto['valor']
-            );
-            $idPrododuto = $produto['id'];
-            $novaQuantidade = $produto['quantidade']-1;
-        }
-        $prdJson = json_encode($carrinho);
-        $this->db->set('quantidade', $novaQuantidade);
-        $this->db->where('id', $idPrododuto);
-        $this->db->update('produtos');    
-
-        $this->db->set('carrinho', $prdJson);
-        $this->db->where('user_id', 10);
-        $this->db->update('usuarios');
-        
-
+    public function adicionarCarrinho( $idPrododuto, $id_usuario){
+        $produtos = $this->db->get_where('produtos', array('id'=> $idPrododuto))->result_array();
+        $carrinho = array(
+            'id_produto' => $idPrododuto,
+            'id_usuario' => $id_usuario
+        );
+        $this->db->insert('carrinho', $carrinho);
 
     }
     }

@@ -5,6 +5,7 @@
     }else{
         $usuario_logado['tipo'] = "cliente";
     }
+
 ?>
 <main>
 
@@ -24,23 +25,24 @@
                             <p class="card-text">R$ <?php echo $produto['valor']?></p>
                             <p class="card-text"><?php echo $produto['descricao']?></p>
                             <?php if($usuario_logado['tipo'] == 'adm'): ?>
-                                <a class="btn btn" id="botaoCard" ><i class="bi bi-suit-heart"></i></a>
                                 <a class="btn btn" id="botaoCard" href="javascript:goDelete(<?= $produto['id']?>)"><i class="bi bi-trash3"></i></a>
-                                <a  class="btn btn " hiden id="botaoCard" data-toggle="modal" data-target="#modalAtt<?= $produto['id']?>" ><i class="bi bi-pencil">
+                                <a  class="btn btn "  id="botaoCard" data-toggle="modal" data-target="#modalAtt<?= $produto['id']?>" ><i class="bi bi-pencil"></i></a>
+                                <br><br>
 
                             <?php elseif ($usuario_logado['tipo'] == 'estoquista'): ?>
-                                <a class="btn btn" id="botaoCard" ><i class="bi bi-suit-heart"></i></a>
-                                <a  class="btn btn " hiden id="botaoCard" data-toggle="modal" data-target="#modalAtt<?= $produto['id']?>" ><i class="bi bi-pencil">
+                                <a  class="btn btn "  id="botaoCard" data-toggle="modal" data-target="#modalAtt<?= $produto['id']?>" ><i class="bi bi-pencil"></i></a>
+                                    <br><br>
 
-                            <?php elseif ($usuario_logado['tipo'] == 'cliente'):  ?>
-                                <a class="btn btn" id="botaoCard" ><i class="bi bi-suit-heart"></i></a>
                             <?php endif?>
-                            </i></a >
-                            <br><br>
+                            
                             <div class="container">
                                 <div class="row">
                                     <div class="row-md-3 ">
-                                        <a   href="<?= base_url()?>carrinhoController/adicionarCarrinho/<?= $produto['id']?>" class="btn btn btn-sm"  id="botaoCard" id="botao">Adicionar ao carrinho</a>
+                                        <?php if(isset($_SESSION['usuario_logado'])):?>
+                                            <a   href="<?= base_url()?>carrinhoController/adicionarCarrinho/<?= $produto['id']?>/<?= $usuario_logado['user_id']?>" class="btn btn btn-sm"  id="botaoCard" id="botao">Adicionar ao carrinho</a>
+                                        <?php else:?>
+                                            <a   href="<?= base_url()?>usuarioController/login" class="btn btn btn-sm"  id="botaoCard" id="botao">Adicionar ao carrinho</a>
+                                        <?php endif?>
                                     </div>
                                 </div>
                             </div>

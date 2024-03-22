@@ -33,8 +33,14 @@ class Produtos_model extends CI_Model {
                 'nome' => $produto['nome'],
                 'valor' => $produto['valor']
             );
+            $idPrododuto = $produto['id'];
+            $novaQuantidade = $produto['quantidade']-1;
         }
         $prdJson = json_encode($carrinho);
+        $this->db->set('quantidade', $novaQuantidade);
+        $this->db->where('id', $idPrododuto);
+        $this->db->update('produtos');    
+
         $this->db->set('carrinho', $prdJson);
         $this->db->where('user_id', 10);
         $this->db->update('usuarios');

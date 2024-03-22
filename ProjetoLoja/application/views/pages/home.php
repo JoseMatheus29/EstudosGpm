@@ -18,7 +18,7 @@
                     <div class="card">
                         <img class="card-img-top" src="<?= base_url()?>assets/img/<?php echo $produto['foto']?>" alt="Imagem roupa">
                         <div class="card-body">
-                        <h5 class="card-title"><?php echo $produto['id']?></h5>
+                        <h5 class="card-title"><?php echo $produto['quantidade']?></h5>
 
                             <h5 class="card-title"><?php echo $produto['nome']?></h5>
                             <p class="card-text">R$ <?php echo $produto['valor']?></p>

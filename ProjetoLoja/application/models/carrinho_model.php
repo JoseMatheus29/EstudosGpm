@@ -14,8 +14,6 @@ class Carrinho_model extends CI_Model {
             $idPrododuto = $produto['id'];
             $novaQuantidade = $produto['quantidade']-1;
         }
-        echo $novaQuantidade;
-        exit();
         $this->db->set('quantidade', $novaQuantidade);
         $this->db->where('id', $idPrododuto);
         $this->db->update('produtos');  

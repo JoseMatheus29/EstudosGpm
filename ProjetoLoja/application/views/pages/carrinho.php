@@ -28,8 +28,7 @@
                     foreach($carrinho as $car):
                         if($usuario_logado['user_id'] == $car['id_usuario']):
                             foreach($produtos as $produto):
-                                if($produto['id'] == $car['id_produto']):
-                ?>
+                                if($produto['id'] == $car['id_produto']):?>
                 <tr>
                     <td><?php echo $produto['nome'];?></td>
                     <td><?php echo $produto['valor'];?></td>
@@ -43,9 +42,9 @@
                     </td>
                 </tr>
                 <?php endif?>
-                <<?php endforeach?>
+                <?php endforeach?>
                 <?php endif?>
-                <<?php endforeach?>
+                <?php endforeach?>
 			</tbody>
 		</table>
 	</div>

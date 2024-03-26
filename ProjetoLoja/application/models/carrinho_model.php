@@ -7,34 +7,21 @@ class Carrinho_model extends CI_Model {
         return $this->db->get("pedidos")->result_array();
     }
 
-    public function finalizar($idProduto, $idUsuario){
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        // $produtos = $this->db->get_where('produtos', array('id'=> $idPrododuto))->result_array();
+    public function finalizar($produtosUrl, $idUsuario){
+        $produtosJson = urldecode($produtosUrl);
+        $idsProdutos = json_decode($produtosJson, true);
+        $idsProdutosString = implode(',', $idsProdutos);
 
-        // foreach ($produtos as $produto) {
-        //     $idPrododuto = $produto['id'];
-        //     $novaQuantidade = $produto['quantidade']-1;
-        // }
-        // $this->db->set('quantidade', $novaQuantidade);
-        // $this->db->where('id', $idPrododuto);
-        // $this->db->update('produtos');  
+        $data = array(
+            'id_produtos' => $idsProdutosString,
+            'id_usuario'  => $idUsuario,
+            'status'  => 'Processo de entrega'
+        );
         
-        
-        // $this->db->set('status', 1);
-        // $this->db->where('id', $idPedido);
-        // $this->db->update('carrinho');    
-
+        $this->db->insert('pedidos',$data);
+        $this->db->set('carrinho', null); 
+        $this->db->where('user_id', $idUsuario); 
+        $this->db->update('usuarios'); 
 
     }
 

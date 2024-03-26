@@ -4,7 +4,7 @@
     }
     $carrinho = $this->usuarios_model->retornaProdutosCarrinho($usuario_logado['user_id']);
     $produtosArray = json_decode($carrinho['carrinho'], true);
-
+    $produtosPedidos = array();
 
             
 ?>
@@ -33,7 +33,7 @@
 			</thead>
 			<tbody>
                 <?php 
-                    if(is_array($produtosArray)):?>
+                    if(!(is_array($produtosArray))):?>
                         <p>Você não tem nenhum produto no carrinho</p>
                     <?php else:
                         foreach ($produtosArray as $produtos): //captando os dados que vinheram do banco
@@ -41,7 +41,10 @@
 
                                 foreach ($produtos as $produto) : //interando o array
                                     $resultadoProdutos = $this->produtos_model->selecionarProdutosId($produto['id_produto']);
-                                        foreach($resultadoProdutos as $produto):?>
+                                        foreach($resultadoProdutos as $produto):
+                                            array_push($produtosPedidos, $produto['id']);
+                                        
+                                        ?>
                                             <tr>
                                                 <td><img class="card-img-top" src="<?= base_url()?>assets/img/<?php echo $produto['foto']?>" alt="Imagem roupa"></td>
                                                 <td><?php echo $produto['nome'];?></td>
@@ -49,8 +52,6 @@
                                                 <td><?php echo $produto['valor'];?></td>
                                                 <td><?php echo $produto['descricao'];?></td>
                                                 <td><?php echo $produto['quantidade'];?></td>
-
-                                            
                                                 <td>
                                                     <a href="javascript:goDelete(<?= $usuario_logado['user_id']?>,<?= $produto['id']?> )" class='btn btn-sm btn-danger '>
                                                     <i class="bi bi-trash3"></i>
@@ -63,11 +64,13 @@
 
                         <?php endforeach?>
                         
-                    <?php endif?>
+                    <?php endif;
+                        $produtosPedidosJson  = json_encode($produtosPedidos);
+                    ?>
 
 			</tbody>
 		</table>
-        <a   href="<?= base_url()?>carrinhoController/finalizar/" class="btn btn btn-sm"  id="botaoCard" id="botao">Finalizar pedido</a>
+        <a   href="<?= base_url()?>carrinhoController/finalizar/<?= urlencode($produtosPedidosJson) ?>/<?= $usuario_logado['user_id'];?>" class="btn btn btn-sm"  id="botaoCard" id="botao">Finalizar pedido</a>
 	</div>
 
 </main>

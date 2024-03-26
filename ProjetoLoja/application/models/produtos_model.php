@@ -31,12 +31,15 @@ class Produtos_model extends CI_Model {
         $this->db->where('id', $produto['id']);
         $this->db->update('produtos');
     }
+    public function selecionarProdutosId($idProduto){
+        return $this->db->get_where('produtos', array('id'=> $idProduto))->result_array();
 
-    public function adicionarCarrinho( $idPrododuto, $id_usuario){
-        $produtos = $this->db->get_where('produtos', array('id'=> $idPrododuto))->result_array();
+    }
+    public function adicionarCarrinho( $idProduto, $id_usuario){
+        $produtos = $this->db->get_where('produtos', array('id'=> $idProduto))->result_array();
         $carrinho = array();        
         array_push($carrinho, array(
-            'id_produto' => $idPrododuto,
+            'id_produto' => $idProduto,
             'id_usuario' => $id_usuario
         ));
         //$carrinho_json = json_encode($carrinho);

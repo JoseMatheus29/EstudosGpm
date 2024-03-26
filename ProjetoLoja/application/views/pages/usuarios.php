@@ -32,7 +32,6 @@
                         <td>
                         <a  class="btn btn " id="botaoCard" data-toggle="modal" data-target="#modalAttUsuario<?= $usuario['user_id']?>">
                         <i class="bi bi-pencil">
-
                         </i>
                             <a href="javascript:goDelete(<?= $usuario['user_id']?>)" class='btn btn-sm btn-danger '>
                             <i class="bi bi-trash3"></i>

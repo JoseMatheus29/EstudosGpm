@@ -4,24 +4,36 @@ class Carrinho_model extends CI_Model {
 
 
     public function index(){ 
-        return $this->db->get("carrinho")->result_array();
+        return $this->db->get("pedidos")->result_array();
     }
 
-    public function finalizar($idPrododuto, $idPedido){
-        $produtos = $this->db->get_where('produtos', array('id'=> $idPrododuto))->result_array();
+    public function finalizar($idProduto, $idUsuario){
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        // $produtos = $this->db->get_where('produtos', array('id'=> $idPrododuto))->result_array();
 
-        foreach ($produtos as $produto) {
-            $idPrododuto = $produto['id'];
-            $novaQuantidade = $produto['quantidade']-1;
-        }
-        $this->db->set('quantidade', $novaQuantidade);
-        $this->db->where('id', $idPrododuto);
-        $this->db->update('produtos');  
+        // foreach ($produtos as $produto) {
+        //     $idPrododuto = $produto['id'];
+        //     $novaQuantidade = $produto['quantidade']-1;
+        // }
+        // $this->db->set('quantidade', $novaQuantidade);
+        // $this->db->where('id', $idPrododuto);
+        // $this->db->update('produtos');  
         
         
-        $this->db->set('status', 1);
-        $this->db->where('id', $idPedido);
-        $this->db->update('carrinho');    
+        // $this->db->set('status', 1);
+        // $this->db->where('id', $idPedido);
+        // $this->db->update('carrinho');    
 
 
     }
@@ -62,27 +74,34 @@ class Carrinho_model extends CI_Model {
         $this->db->update('produtos');  
     }
 
-    public function deletarProdutoCarrinho($idUsuario, $idProduto){
+    public function deletarProdutoCarrinho($idUsuario, $idProduto) {
         $this->db->select('carrinho');
         $this->db->where('user_id', $idUsuario); 
         $produtosCarrinho = $this->db->get('usuarios')->row_array();
-        $protutosCarrinhoArray = json_decode($produtosCarrinho['carrinho'], true);
-        foreach($protutosCarrinhoArray as $produtos){
-            foreach($produtos as $produto){
-                if($produto['id_produto'] == $idProduto){
-                    unset($produto);
-                    $carrinhoNovoBanco = json_encode($produto);
-                    $this->db->set('carrinho', $carrinhoNovoBanco);
-                    $this->db->where('user_id', $idUsuario);
-                    $this->db->update('usuarios');  
+        
+        // Decodifica o JSON para um array PHP
+        $produtosCarrinhoArray = json_decode($produtosCarrinho['carrinho'], true);
+    
+        // Percorre o array de arrays de produtos no carrinho
+        foreach ($produtosCarrinhoArray as $index => $produtos) {
+            // Itera sobre os produtos dentro de cada array
+            foreach ($produtos as $indice => $produto) {
+                if ($produto['id_produto'] == $idProduto) {
+                    // Remove o produto do carrinho
+                    unset($produtosCarrinhoArray[$index][$indice]);
                 }
-                
-                
-
             }
-            
         }
-
+    
+        // Codifica o novo array para JSON
+        $novoCarrinhoJSON = json_encode($produtosCarrinhoArray);
+    
+        // Atualiza o campo 'carrinho' no banco de dados com o novo JSON
+        $this->db->set('carrinho', $novoCarrinhoJSON);
+        $this->db->where('user_id', $idUsuario);
+        $this->db->update('usuarios');
     }
+    
+    
 }
 ?>

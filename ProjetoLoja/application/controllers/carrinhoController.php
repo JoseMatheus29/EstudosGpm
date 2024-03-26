@@ -17,14 +17,14 @@ class carrinhoController extends CI_Controller{
 	}
 
     public function adicionarCarrinho($idProduto, $idUser){
-        $this->load->model("produtos_model");
-        $this->produtos_model->adicionarCarrinho($idProduto, $idUser);
+        $this->load->model("carrinho_model");
+        $this->carrinho_model->adicionarCarrinho($idProduto, $idUser);
         redirect(base_url());
     }
 
-    public function deletarCarrinho($id){
+    public function deletarProdutoCarrinho($idProduto, $idUser){
         $this->load->model("carrinho_model");
-        $this->carrinho_model->deletar($id);
+        $this->carrinho_model->deletarProdutoCarrinho($idProduto, $idUser);
         redirect(base_url().'/carrinhoController');
     }
     

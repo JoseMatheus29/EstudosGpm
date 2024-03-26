@@ -48,15 +48,14 @@
                     <td><?php echo $produto['quantidade'];?></td>
 
                 
-                    <?=exit();?>
                     <td>
                     </i>
-                        <a href="javascript:goDelete(<?= $car['id']?>)" class='btn btn-sm btn-danger '>
+                        <a href="javascript:goDelete(<?= $usuario_logado['user_id']?>,<?= $produto['id']?> )" class='btn btn-sm btn-danger '>
                         <i class="bi bi-trash3"></i>
                         </a>
                     </td>
                 </tr>
-                <a   href="<?= base_url()?>carrinhoController/finalizar//<?= $produto['id']?>/<?= $car['id']?>" class="btn btn btn-sm"  id="botaoCard" id="botao">Finalizar pedido</a>
+                <a   href="<?= base_url()?>carrinhoController/finalizar//<?= $produto['id']?>/<?= $produto['id']?>" class="btn btn btn-sm"  id="botaoCard" id="botao">Finalizar pedido</a>
                 <?php endforeach?>
                 <?php endforeach?>
                 <?php endforeach?>
@@ -67,8 +66,8 @@
 </main>
 
 <script>
-    function goDelete(id){
-        var myUrl = 'carrinhoController/deletarCarrinho/'+id
+    function goDelete(idUsuario, idProduto){
+        var myUrl = 'carrinhoController/deletarProdutoCarrinho/'+idUsuario+'/'+idProduto
         if(confirm('Deseja realmente apagar esse registro?')){
             window.location.href =myUrl
         }else{

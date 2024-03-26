@@ -25,7 +25,8 @@ class Carrinho_model extends CI_Model {
 
 
     }
-    
+
+
 
     public function deletar($idPedido){
         $this->db->where("id",$idPedido);

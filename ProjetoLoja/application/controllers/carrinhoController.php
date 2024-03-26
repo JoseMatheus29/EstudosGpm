@@ -5,10 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class carrinhoController extends CI_Controller{
     public function index()
 	{   
-        $this->load->model("carrinho_model");
+        $this->load->model("usuarios_model");
         $this->load->model("produtos_model");
-        $data['produtos'] = $this->produtos_model->index();
-        $data['carrinho'] = $this->carrinho_model->index();
+        
         $data['title'] = "Carrinho";
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar', $data);

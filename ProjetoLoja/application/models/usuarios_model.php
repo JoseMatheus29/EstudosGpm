@@ -33,6 +33,12 @@ class Usuarios_model extends CI_Model {
         return $user;
     }
 
+    public function retornaProdutosCarrinho($idUser){
+        $this->db->select('carrinho');
+        $this->db->where('user_id', $idUser); 
+        return $this->db->get('usuarios')->row_array();
+        
+    }
 
 }
 ?>

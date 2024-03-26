@@ -2,6 +2,11 @@
     if (isset($_SESSION['usuario_logado'])){
         $usuario_logado = $_SESSION['usuario_logado'];
     }
+    $carrinho = $this->usuarios_model->retornaProdutosCarrinho($usuario_logado['user_id']);
+    $produtosArray = json_decode($carrinho['carrinho'], true);
+    foreach ($produtosArray as $produtos): //captando os dados que vinheram do banco
+        foreach ($produtos as $produto) : //interando o array
+            
 ?>
 
 
@@ -24,15 +29,11 @@
 				</tr>
 			</thead>
 			<tbody>
-                <?php 
-                    foreach($carrinho as $car): //captando todos as linahs de carrinho 
-                        if($usuario_logado['user_id'] == $car['id_usuario']): //captando todos os ids de usuario que estão com pedidos em 
-                            foreach($produtos as $produto):
-                                if($produto['id'] == $car['id_produto']):?>
+   
                 <tr>
-                    <td><?php echo $produto['nome'];?></td>
-                    <td><?php echo $produto['valor'];?></td>
-
+                    <td><?php echo $produto['id_produto'];?></td>
+                    <td><?php echo $produto['id_usuario'];?></td>
+                
                     
                     <td>
                     </i>
@@ -41,14 +42,13 @@
                         </a>
                     </td>
                 </tr>
-                <?php endif?>
+                <a   href="<?= base_url()?>carrinhoController/finalizar//<?= $produto['id']?>/<?= $car['id']?>" class="btn btn btn-sm"  id="botaoCard" id="botao">Finalizar pedido</a>
                 <?php endforeach?>
-                <?php endif?>
                 <?php endforeach?>
 			</tbody>
 		</table>
 	</div>
-    <a   href="<?= base_url()?>carrinhoController/finalizar//<?= $produto['id']?>/<?= $car['id']?>" class="btn btn btn-sm"  id="botaoCard" id="botao">Finalizar pedido</a>
+
 </main>
 
 <script>

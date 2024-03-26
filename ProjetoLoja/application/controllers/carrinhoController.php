@@ -17,9 +17,9 @@ class carrinhoController extends CI_Controller{
 
 	}
 
-    public function adicionarCarrinho($id, $id_user){
+    public function adicionarCarrinho($idProduto, $idUser){
         $this->load->model("produtos_model");
-        $this->produtos_model->adicionarCarrinho($id, $id_user);
+        $this->produtos_model->adicionarCarrinho($idProduto, $idUser);
         redirect(base_url());
     }
 

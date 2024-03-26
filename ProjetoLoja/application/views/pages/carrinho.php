@@ -25,8 +25,8 @@
 			</thead>
 			<tbody>
                 <?php 
-                    foreach($carrinho as $car):
-                        if($usuario_logado['user_id'] == $car['id_usuario']):
+                    foreach($carrinho as $car): //captando todos as linahs de carrinho 
+                        if($usuario_logado['user_id'] == $car['id_usuario']): //captando todos os ids de usuario que estão com pedidos em 
                             foreach($produtos as $produto):
                                 if($produto['id'] == $car['id_produto']):?>
                 <tr>

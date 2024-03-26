@@ -33,32 +33,39 @@
 			</thead>
 			<tbody>
                 <?php 
-                    foreach ($produtosArray as $produtos): //captando os dados que vinheram do banco
-                        foreach ($produtos as $produto) : //interando o array
-                            $resultadoProdutos = $this->produtos_model->selecionarProdutosId($produto['id_produto']);
-                            foreach($resultadoProdutos as $produto):
-                                ?>
+                    if($produtosArray):
+                        foreach ($produtosArray as $produtos): //captando os dados que vinheram do banco
+                            foreach ($produtos as $produto) : //interando o array
+                                $resultadoProdutos = $this->produtos_model->selecionarProdutosId($produto['id_produto']);
+                                foreach($resultadoProdutos as $produto):
+                                    ?>
 
-                <tr>
-                    <td><img class="card-img-top" src="<?= base_url()?>assets/img/<?php echo $produto['foto']?>" alt="Imagem roupa"></td>
-                    <td><?php echo $produto['nome'];?></td>
-                    <td><?php echo $produto['tamanho'];?></td>
-                    <td><?php echo $produto['valor'];?></td>
-                    <td><?php echo $produto['descricao'];?></td>
-                    <td><?php echo $produto['quantidade'];?></td>
+                        <tr>
+                            <td><img class="card-img-top" src="<?= base_url()?>assets/img/<?php echo $produto['foto']?>" alt="Imagem roupa"></td>
+                            <td><?php echo $produto['nome'];?></td>
+                            <td><?php echo $produto['tamanho'];?></td>
+                            <td><?php echo $produto['valor'];?></td>
+                            <td><?php echo $produto['descricao'];?></td>
+                            <td><?php echo $produto['quantidade'];?></td>
 
-                
-                    <td>
-                    </i>
-                        <a href="javascript:goDelete(<?= $usuario_logado['user_id']?>,<?= $produto['id']?> )" class='btn btn-sm btn-danger '>
-                        <i class="bi bi-trash3"></i>
-                        </a>
-                    </td>
-                </tr>
-                <a   href="<?= base_url()?>carrinhoController/finalizar//<?= $produto['id']?>/<?= $produto['id']?>" class="btn btn btn-sm"  id="botaoCard" id="botao">Finalizar pedido</a>
+                        
+                            <td>
+                            </i>
+                                <a href="javascript:goDelete(<?= $usuario_logado['user_id']?>,<?= $produto['id']?> )" class='btn btn-sm btn-danger '>
+                                <i class="bi bi-trash3"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <a   href="<?= base_url()?>carrinhoController/finalizar//<?= $produto['id']?>/<?= $produto['id']?>" class="btn btn btn-sm"  id="botaoCard" id="botao">Finalizar pedido</a>
+                        
+                    
                 <?php endforeach?>
                 <?php endforeach?>
                 <?php endforeach?>
+                <?php else:?>
+                        <p>Você não tem nenhum produto no carrinho</p>
+                <?php endif?>
+
 			</tbody>
 		</table>
 	</div>

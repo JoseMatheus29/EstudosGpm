@@ -14,5 +14,11 @@ class pedidosController extends CI_Controller{
         $this->load->view('templates/footer.php', $data);
 
 	}
+    public function deletar($idPedido){
+        $this->load->model("pedidos_model");
+        $this->pedidos_model->deletar($idPedido);
+        redirect(base_url().'/pedidosController');
+
+    }
 }
 ?>

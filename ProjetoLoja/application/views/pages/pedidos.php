@@ -36,7 +36,7 @@
 
 <script>
     function goDelete(id){
-        var myUrl = 'usuarioController/deletarUsuario/'+id
+        var myUrl = 'pedidosCOntroller/deletar/'+id
         if(confirm('Deseja realmente apagar esse registro?')){
             window.location.href =myUrl
         }else{

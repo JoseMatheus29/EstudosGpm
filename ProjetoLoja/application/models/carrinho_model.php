@@ -66,27 +66,33 @@ class Carrinho_model extends CI_Model {
         $this->db->where('user_id', $idUsuario); 
         $produtosCarrinho = $this->db->get('usuarios')->row_array();
         
-        // Decodifica o JSON para um array PHP
+        $this->db->select('quantidade');
+        $this->db->where('id', $idProduto); 
+        $quantidadeProduto = $this->db->get('produtos')->row_array();
+        $quantidadeProdutoAtt = $quantidadeProduto['quantidade'] + 1;
+
+
         $produtosCarrinhoArray = json_decode($produtosCarrinho['carrinho'], true);
     
-        // Percorre o array de arrays de produtos no carrinho
         foreach ($produtosCarrinhoArray as $index => $produtos) {
-            // Itera sobre os produtos dentro de cada array
             foreach ($produtos as $indice => $produto) {
                 if ($produto['id_produto'] == $idProduto) {
-                    // Remove o produto do carrinho
                     unset($produtosCarrinhoArray[$index][$indice]);
                 }
             }
         }
     
-        // Codifica o novo array para JSON
         $novoCarrinhoJSON = json_encode($produtosCarrinhoArray);
     
-        // Atualiza o campo 'carrinho' no banco de dados com o novo JSON
         $this->db->set('carrinho', $novoCarrinhoJSON);
         $this->db->where('user_id', $idUsuario);
         $this->db->update('usuarios');
+
+
+        $this->db->set('quantidade', $quantidadeProdutoAtt);
+        $this->db->where('id', $idProduto);
+        $this->db->update('produtos');
+        
     }
     
     

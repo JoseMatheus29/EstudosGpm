@@ -32,7 +32,7 @@ class ProdutoController extends CI_Controller{
         redirect(base_url());
     }
 
-    public function deletar($idProduto, $idUsuario){
+    public function deletar($idProduto){
         $this->load->model("produtos_model");
         $this->produtos_model->deletar($idProduto);
         redirect(base_url());

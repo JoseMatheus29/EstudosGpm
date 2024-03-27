@@ -26,7 +26,7 @@
                                 <p class="card-text">R$ <?php echo $produto['valor']?></p>
                                 <p class="card-text" ><?php echo $produto['descricao']?></p>
                                 <?php if($usuario_logado['tipo'] == 'adm'): ?>
-                                    <a class="btn btn" id="botaoCard" href="javascript:goDelete(<?= $produto['id']?>,<?= $usuario_logado['user_id']?>)"><i class="bi bi-trash3"></i></a>
+                                    <a class="btn btn" id="botaoCard" href="javascript:goDelete(<?= $produto['id']?>)"><i class="bi bi-trash3"></i></a>
                                     <a  class="btn btn "  id="botaoCard" data-toggle="modal" data-target="#modalAtt<?= $produto['id']?>" ><i class="bi bi-pencil"></i></a>
 
                                 <?php elseif ($usuario_logado['tipo'] == 'estoquista'): ?>
@@ -72,7 +72,7 @@
 
 <script>
     function goDelete(id,idUsuario){
-        var myUrl = 'ProdutoController/deletar/'+id+'/'+idUsuario
+        var myUrl = 'ProdutoController/deletar/'+id
         if(confirm('Deseja realmente apagar esse registro?')){
             window.location.href =myUrl
         }else{

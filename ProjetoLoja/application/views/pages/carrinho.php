@@ -28,7 +28,6 @@
                     <th>Tamanho</th>
                     <th>Valor</th>
                     <th>Descricao</th>
-                    <th>Quantidade</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -53,7 +52,7 @@
                                                 <td><?php echo $produto['tamanho'];?></td>
                                                 <td><?php echo $produto['valor'];?></td>
                                                 <td><?php echo $produto['descricao'];?></td>
-                                                <td><?php echo $produto['quantidade'];?></td>
+                                                
                                                 <td>
                                                     <a href="javascript:goDelete(<?= $usuario_logado['user_id']?>,<?= $produto['id']?> )" class='btn btn-sm btn-danger '>
                                                     <i class="bi bi-trash3"></i>

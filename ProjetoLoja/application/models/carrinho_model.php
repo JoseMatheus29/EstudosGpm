@@ -35,8 +35,7 @@ class Carrinho_model extends CI_Model {
             'id_produto' => $idProduto,
             'idUsuario' => $idUsuario
         ));
-        //$carrinho_json = json_encode($carrinho);
-        #pegar o ultimo valor da coluna carrinho e incrementar com o novo valor para assim fazer o array de pedidos 
+
         $this->db->select('carrinho');
         $this->db->where('user_id', $idUsuario); 
         $produtosCarrinho = $this->db->get('usuarios')->row_array();

@@ -21,15 +21,16 @@ class pedidosController extends CI_Controller{
 
     }
 
-    public function visualizarProdutosPedidos(){
+    public function visualizarProdutosPedidos($id_pedido, $id_usuario){
         $this->load->model("pedidos_model");
         $this->load->model("produtos_model");
-        $data['pedidos'] = $this->pedidos_model->index();
+
+        $data['pedidos'] = $this->pedidos_model->selecionarPedido($id_pedido);
         $data['produtos'] = $this->produtos_model->index();
         $data['title'] = "Vizualizar Produtos";
-        // $this->load->view('templates/header', $data);
-        // $this->load->view('templates/navbar', $data);
-		$this->load->view('pages/visualizarProdutos', $data);
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/navbar', $data);
+		$this->load->view('pages/visualizarProdutos', $data, $id_pedido);
     }
 }
 ?>

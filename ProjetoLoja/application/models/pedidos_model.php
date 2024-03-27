@@ -9,5 +9,9 @@ class Pedidos_model extends CI_Model {
         $this->db->where("id",$id);
         return $this->db->delete("pedidos");  
     }
+    public function selecionarPedido($id){
+        return $this->db->get_where('pedidos', array('id'=> $id))->result_array();
+
+    }
 }
 ?>

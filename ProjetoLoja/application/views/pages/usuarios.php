@@ -1,5 +1,5 @@
 <br><br><br>
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+<main role="main" class="col-md-9 ml-sm-auto col-lg-12 px-4">
 	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 		<h1 class="h2">Usuarios</h1>
 	</div>
@@ -31,13 +31,22 @@
                         <td><?= $usuario["carrinho"] ?></td>
                         <td><?= $usuario["logado"] ?></td>
                         
-                        <?php foreach($pedidos as $pedido):?>
-                            <?php if($pedido['id_usuario'] == $usuario["user_id"]):?>
-                                <td><?=$pedido['id']?></td>
-                            <?php else:?>
-                                <td>Sem pedido!</td>
-                            <?php endif?>
-                        <?php endforeach?>
+                        <?php 
+                        $resultadoPedidos = array();
+                        foreach($pedidos as $pedido){
+                            if($pedido['id_usuario'] == $usuario["user_id"]){
+                                array_push($resultadoPedidos, $pedido['id']);
+                            }else{
+
+                            }
+                        }
+                        ?>
+                            
+                                <td><?php foreach($resultadoPedidos as $idPedidos){
+                                    echo $idPedidos.',';
+                                }
+                                    ?></td>
+                            
                         
                         <td>
                         <a  class="btn btn " id="botaoCard" data-toggle="modal" data-target="#modalAttUsuario<?= $usuario['user_id']?>">

@@ -36,7 +36,7 @@
                             <!-- <a  class="btn btn " id="botaoCard" data-toggle="modal" data-target="#modalAttUsuario<?= $usuario['user_id']?>">
                             <i class="bi bi-pencil"> 
                             </i>-->
-                                <a href="<?= base_url()?>pedidosController/visualizarProdutosPedidos/<?=$pedido["id"]?>/<?=$usuario_logado['user_id']?>" class='btn btn-sm'>
+                                <a href="<?= base_url()?>pedidosController/visualizarProdutosPedidos/<?=$pedido["id"]?>/<?=$usuario_logado['user_id']?>" class='btn btn-sm' id='botaoCard'>
                                     <i class="bi bi-eye"></i>
                                 </a>
                                 <a href="javascript:goDelete(<?= $pedido['id']?>,<?=$usuario_logado['user_id']?>)" class='btn btn-sm btn-danger '>

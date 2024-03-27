@@ -1,6 +1,8 @@
-<?php
+<?php   
     if (isset($_SESSION['usuario_logado'])){
         $usuario_logado = $_SESSION['usuario_logado'];
+    }else{
+        redirect(base_url());
     }
     $carrinho = $this->usuarios_model->retornaProdutosCarrinho($usuario_logado['user_id']);
     $produtosArray = json_decode($carrinho['carrinho'], true);

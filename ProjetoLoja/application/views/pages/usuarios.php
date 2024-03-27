@@ -2,6 +2,8 @@
     
     if (isset($_SESSION['usuario_logado'])){
         $usuario_logado = $_SESSION['usuario_logado'];
+    }else{
+        redirect(base_url());
     }
 
 ?>

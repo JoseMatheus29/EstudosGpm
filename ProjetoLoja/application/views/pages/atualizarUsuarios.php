@@ -1,9 +1,9 @@
 <?php   
-    
     if (isset($_SESSION['usuario_logado'])){
         $usuario_logado = $_SESSION['usuario_logado'];
-    }
-
+    }else{
+        redirect(base_url());
+  }
 ?>
 <?php foreach($usuarios as $usuario):?>
 <div class="modal fade" id="modalAttUsuario<?= $usuario['user_id']?>" tabindex="-1" >

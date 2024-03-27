@@ -11,7 +11,6 @@ class pedidosController extends CI_Controller{
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar', $data);
 		$this->load->view('pages/pedidos', $data);
-        $this->load->view('templates/footer.php', $data);
 
 	}
     public function deletar($idPedido){
@@ -19,6 +18,15 @@ class pedidosController extends CI_Controller{
         $this->pedidos_model->deletar($idPedido);
         redirect(base_url().'/pedidosController');
 
+    }
+
+    public function visualizarProdutosPedidos(){
+        $this->load->model("pedidos_model");
+        $data['pedidos'] = $this->pedidos_model->index();
+        $data['title'] = "Cadastro Produtos";
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/navbar', $data);
+		$this->load->view('pages/visualizarProdutos', $data);
     }
 }
 ?>

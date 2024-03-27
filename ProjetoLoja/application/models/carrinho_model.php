@@ -7,15 +7,16 @@ class Carrinho_model extends CI_Model {
         return $this->db->get("pedidos")->result_array();
     }
 
-    public function finalizar($produtosUrl, $idUsuario){
+    public function finalizar($produtosUrl, $idUsuario, $valor){
         $produtosJson = urldecode($produtosUrl);
         $idsProdutos = json_decode($produtosJson, true);
         $idsProdutosString = implode(',', $idsProdutos);
-
+        
         $data = array(
             'id_produtos' => $idsProdutosString,
             'id_usuario'  => $idUsuario,
-            'status'  => 'Processo de entrega'
+            'status'  => 'Processo de entrega',
+            'valor' => $valor
         );
         
         $this->db->insert('pedidos',$data);

@@ -5,7 +5,7 @@
     $carrinho = $this->usuarios_model->retornaProdutosCarrinho($usuario_logado['user_id']);
     $produtosArray = json_decode($carrinho['carrinho'], true);
     $produtosPedidos = array();
-
+    $valorPedido = 0;
             
 ?>
 
@@ -43,6 +43,8 @@
                                     $resultadoProdutos = $this->produtos_model->selecionarProdutosId($produto['id_produto']);
                                         foreach($resultadoProdutos as $produto):
                                             array_push($produtosPedidos, $produto['id']);
+                                            $valorPedido+=$produto['valor']
+                                            
                                         
                                         ?>
                                             <tr>
@@ -70,7 +72,9 @@
 
 			</tbody>
 		</table>
-        <a   href="<?= base_url()?>carrinhoController/finalizar/<?= urlencode($produtosPedidosJson) ?>/<?= $usuario_logado['user_id'];?>" class="btn btn btn-sm"  id="botaoCard" id="botao">Finalizar pedido</a>
+        <h4>Valor Final: <?php echo  $valorPedido;?> </h4>
+
+        <a   href="<?= base_url()?>carrinhoController/finalizar/<?= urlencode($produtosPedidosJson) ?>/<?= $usuario_logado['user_id'];?>/<?=$valorPedido?>" class="btn btn btn-sm"  id="botaoCard" id="botao">Finalizar pedido</a>
 	</div>
 
 </main>

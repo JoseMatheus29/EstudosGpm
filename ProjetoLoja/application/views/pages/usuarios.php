@@ -49,9 +49,11 @@
                         }
                         ?>
                             
-                        <td><?php foreach($resultadoPedidos as $idPedidos){
-                            echo $idPedidos.',';
-                        }
+                        <td><?php
+                            $idPedidos = implode(',', $resultadoPedidos);
+                            $idPedidos = rtrim($idPedidos, ",");
+                            echo $idPedidos;
+                        
                             ?></td>
                             
                         

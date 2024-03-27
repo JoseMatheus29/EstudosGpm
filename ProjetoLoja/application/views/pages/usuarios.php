@@ -13,8 +13,10 @@
                     <th>Email</th>
                     <th>Telefone</th>
                     <th>Tipo</th>
-                    <th>Favoritos</th>
+                    <th>Carrinhos</th>
                     <th>Logado</th>
+                    <th>Pedidos</th>
+                    <th>Acao</th>
 
 				</tr>
 			</thead>
@@ -26,9 +28,17 @@
                         <td><?= $usuario["email"] ?></td>
                         <td><?= $usuario["telefone"] ?></td>
                         <td><?= $usuario["tipo"] ?></td>
-                        <td><?= $usuario["favoritos"] ?></td>
+                        <td><?= $usuario["carrinho"] ?></td>
                         <td><?= $usuario["logado"] ?></td>
-
+                        
+                        <?php foreach($pedidos as $pedido):?>
+                            <?php if($pedido['id_usuario'] == $usuario["user_id"]):?>
+                                <td><?=$pedido['id']?></td>
+                            <?php else:?>
+                                <td>Sem pedido!</td>
+                            <?php endif?>
+                        <?php endforeach?>
+                        
                         <td>
                         <a  class="btn btn " id="botaoCard" data-toggle="modal" data-target="#modalAttUsuario<?= $usuario['user_id']?>">
                         <i class="bi bi-pencil">

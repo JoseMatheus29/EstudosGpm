@@ -24,7 +24,6 @@
 			<tbody>
                 <?php foreach($pedidos as $pedido):?>
                     <tr>
-                        
                             <td><?= $pedido["id"] ?></td>
                             <td><?= $pedido["status"] ?></td>
                             <td><?= $pedido["data_entrega"] ?></td>
@@ -38,7 +37,7 @@
                                 <a href="<?= base_url()?>pedidosController/visualizarProdutosPedidos/" class='btn btn-sm'>
                                     <i class="bi bi-eye"></i>
                                 </a>
-                                <a href="javascript:goDelete(<?= $pedido['id']?>)" class='btn btn-sm btn-danger '>
+                                <a href="javascript:goDelete(<?= $pedido['id']?>,<?=$usuario_logado['user_id']?>)" class='btn btn-sm btn-danger '>
                                 <i class="bi bi-trash3"></i>
                                 </a>
                             </td>
@@ -50,8 +49,8 @@
 </main>
 
 <script>
-    function goDelete(id){
-        var myUrl = 'pedidosCOntroller/deletar/'+id
+    function goDelete(idPedido,idUsuario){
+        var myUrl = 'deletar/'+idPedido+'/'+idUsuario
         if(confirm('Deseja realmente apagar esse registro?')){
             window.location.href =myUrl
         }else{

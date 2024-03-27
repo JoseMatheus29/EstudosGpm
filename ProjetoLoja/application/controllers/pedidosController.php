@@ -14,10 +14,10 @@ class pedidosController extends CI_Controller{
 		$this->load->view('pages/pedidos', $data);
 
 	}
-    public function deletar($idPedido){
+    public function deletar($idPedido, $id_usuario){
         $this->load->model("pedidos_model");
         $this->pedidos_model->deletar($idPedido);
-        redirect(base_url().'/pedidosController');
+        redirect(base_url().'/pedidosController/?idUsuario='.$id_usuario);
 
     }
 

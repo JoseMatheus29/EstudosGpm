@@ -5,7 +5,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class usuarioController extends CI_Controller{
 
     public function index(){
+        $id_usuario = $_GET['idUsuario'];
+
         $this->load->model("usuarios_model");
+        $this->load->model("pedidos_model");
+        $data['pedidos'] = $this->pedidos_model->index($id_usuario);
 		$data["usuarios"] = $this->usuarios_model->index();
 		$data["title"] = 'Usuarios';
 		$this->load->view('templates/header', $data);

@@ -13,5 +13,9 @@ class Pedidos_model extends CI_Model {
         return $this->db->get_where('pedidos', array('id'=> $id))->result_array();
 
     }
+    public function todosPedidos(){
+        return $this->db->get('pedidos')->result_array();
+
+    }
 }
 ?>

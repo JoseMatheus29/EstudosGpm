@@ -9,7 +9,7 @@ class usuarioController extends CI_Controller{
 
         $this->load->model("usuarios_model");
         $this->load->model("pedidos_model");
-        $data['pedidos'] = $this->pedidos_model->index($id_usuario);
+        $data['pedidos'] = $this->pedidos_model->todosPedidos();
 		$data["usuarios"] = $this->usuarios_model->index();
 		$data["title"] = 'Usuarios';
 		$this->load->view('templates/header', $data);

@@ -16,8 +16,12 @@
                 </div>
                 <button type="submit" class="btn btn" id="botao">Entrar</button>
             </form>
-            <?php if ($this->session->flashdata('danger')) { ?>
-                <div class="alert alert-danger"> <?= $this->session->flashdata('danger') ?> </div>
+            <?php if ($this->session->flashdata('category_error')) { ?>
+                <div class="alert alert-danger"> 
+                  <p>Usuario ou senha invalido
+                  
+                  </p>
+               </div>
             <?php } ?>
 		</div>
     </main>

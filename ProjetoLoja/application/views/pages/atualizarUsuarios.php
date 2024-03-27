@@ -1,3 +1,10 @@
+<?php   
+    
+    if (isset($_SESSION['usuario_logado'])){
+        $usuario_logado = $_SESSION['usuario_logado'];
+    }
+
+?>
 <?php foreach($usuarios as $usuario):?>
 <div class="modal fade" id="modalAttUsuario<?= $usuario['user_id']?>" tabindex="-1" >
   <div class="modal-dialog" role="document">
@@ -9,7 +16,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="<?= base_url()?>usuarioController/atualizar" method="post">
+        <form action="<?= base_url()?>usuarioController/atualizar/<?=$usuario_logado['user_id']?>" method="post">
             <div class="form-group">
                 <label for="nome" class="col-form-label" >id:</label>
                 <input type="text" class="form-control" name="user_id" value="<?php echo $usuario['user_id']?>" readonly>

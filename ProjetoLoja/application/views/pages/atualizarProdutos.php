@@ -43,7 +43,6 @@
                 <div class="form-group">
                     <label for="foto">Foto</label>
                     <img class="card-img-top" src="<?= base_url()?>assets/img/<?php echo $produto['foto']?>" alt="Imagem roupa">
-                    <input type="file" class="form-control" name="foto" id="foto" placeholder="Foto"  value="<?php echo $produto['foto']?>">
                 </div>
             </div>
             <?php endif?>

@@ -82,12 +82,3 @@
     }
 </script>
 
-
-<!-- 
-<script>
-    $('#modalAtt').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) 
-    var modal = $(this)
-    modal.find('.modal-body input#nome').val('teste')
-    })
-</script> -->

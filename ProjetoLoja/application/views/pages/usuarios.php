@@ -1,3 +1,10 @@
+<?php   
+    
+    if (isset($_SESSION['usuario_logado'])){
+        $usuario_logado = $_SESSION['usuario_logado'];
+    }
+
+?>
 <br><br><br>
 <main role="main" class="col-md-9 ml-sm-auto col-lg-12 px-4">
 	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -14,7 +21,6 @@
                     <th>Telefone</th>
                     <th>Tipo</th>
                     <th>Carrinhos</th>
-                    <th>Logado</th>
                     <th>Pedidos</th>
                     <th>Acao</th>
 
@@ -29,7 +35,6 @@
                         <td><?= $usuario["telefone"] ?></td>
                         <td><?= $usuario["tipo"] ?></td>
                         <td><?= $usuario["carrinho"] ?></td>
-                        <td><?= $usuario["logado"] ?></td>
                         
                         <?php 
                         $resultadoPedidos = array();
@@ -42,17 +47,17 @@
                         }
                         ?>
                             
-                                <td><?php foreach($resultadoPedidos as $idPedidos){
-                                    echo $idPedidos.',';
-                                }
-                                    ?></td>
+                        <td><?php foreach($resultadoPedidos as $idPedidos){
+                            echo $idPedidos.',';
+                        }
+                            ?></td>
                             
                         
                         <td>
                         <a  class="btn btn " id="botaoCard" data-toggle="modal" data-target="#modalAttUsuario<?= $usuario['user_id']?>">
                         <i class="bi bi-pencil">
                         </i>
-                            <a href="javascript:goDelete(<?= $usuario['user_id']?>)" class='btn btn-sm btn-danger '>
+                            <a href="javascript:goDelete(<?= $usuario['user_id']?>,<?= $usuario_logado['user_id']?>)" class='btn btn-sm btn-danger '>
                             <i class="bi bi-trash3"></i>
                             </a>
                         </td>
@@ -64,8 +69,8 @@
 </main>
 
 <script>
-    function goDelete(id){
-        var myUrl = 'usuarioController/deletarUsuario/'+id
+    function goDelete(id,idUsuarioLogado){
+        var myUrl = 'deletarUsuario/'+id+'/'+idUsuarioLogado
         if(confirm('Deseja realmente apagar esse registro?')){
             window.location.href =myUrl
         }else{

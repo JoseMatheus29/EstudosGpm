@@ -43,18 +43,17 @@
                         foreach($pedidos as $pedido){
                             if($pedido['id_usuario'] == $usuario["user_id"]){
                                 array_push($resultadoPedidos, $pedido['id']);
-                            }else{
-
                             }
                         }
                         ?>
-                            
-                        <td><?php
-                            $idPedidos = implode(',', $resultadoPedidos);
-                            $idPedidos = rtrim($idPedidos, ",");
-                            echo $idPedidos;
-                        
-                            ?></td>
+                              
+                        <td> <?php
+                        foreach($resultadoPedidos as $idPedidos){
+
+                            echo '<a href="'.base_url().'pedidosController/visualizarProdutosPedidos/'.$idPedidos.'/'.$usuario_logado["user_id"].'">' . $idPedidos . '/</a>';
+                        }
+                            ?>
+                            </td>
                             
                         
                         <td>

@@ -50,7 +50,7 @@
                         <td> <?php
                         foreach($resultadoPedidos as $idPedidos){
 
-                            echo '<a class="btn btn-sm  " id="botaoCard" ref="'.base_url().'pedidosController/visualizarProdutosPedidos/'.$idPedidos.'/'.$usuario_logado["user_id"].'" >' . $idPedidos . '</a>';
+                            echo '<a class="btn btn-sm  " id="botaoCard" href="'.base_url().'pedidosController/visualizarProdutosPedidos/'.$idPedidos.'/'.$usuario_logado["user_id"].'" >' . $idPedidos . '</a>';
                         }
                             ?>
                             </td>

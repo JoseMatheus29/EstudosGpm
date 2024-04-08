@@ -16,6 +16,9 @@
 		<h1 class="h2">Pedidos</h1>
 	</div>
     <a class="btn btn" id="botaoCard" href="<?= base_url()?>pedidosController/?idUsuario=<?=$usuario_logado['user_id']?>">Voltar </a>
+    <?php if($usuario_logado['tipo'] == 'adm'): ?>
+        <a href="<?= base_url()?>usuarioController/?idUsuario=<?=$usuario_logado['user_id']?>" class="btn btn" id="botaoCard">Voltar Usuarios</a>
+        <?php endif?>
 	<div class="table-responsive">
 		<table class="table table-bordered table-hover">
 			<thead>
